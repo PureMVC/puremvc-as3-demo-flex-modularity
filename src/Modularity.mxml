@@ -9,6 +9,11 @@
 		
 		]]>
 	</mx:Script>
-	<widgetmakers:CoolWidget id="w1" />
-	<widgetworks:SuperWidget id="w2" />
+	
+	<mx:ApplicationControlBar dock="true">
+		<mx:Text text="Modularity"/>
+		<widgetmakers:CoolWidget id="w1" />
+		<widgetworks:SuperWidget id="w2" />
+	</mx:ApplicationControlBar>	
+	
 </mx:Application>
