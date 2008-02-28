@@ -32,6 +32,6 @@
 		]]>
 	</mx:Script>
 	
-	<mx:Button label="CoolWidget!" click="dispatchEvent(new Event(PROD,true));"/>
+	<mx:Button label="CoolWidget" click="dispatchEvent(new Event(PROD,true));"/>
 	
 </mx:Module>

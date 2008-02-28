@@ -30,7 +30,7 @@
 		]]>
 	</mx:Script>
 	
-	<mx:Button label="SuperWidget!" click="dispatchEvent(new Event(POKE,true));"/>
+	<mx:Button label="SuperWidget" click="dispatchEvent(new Event(POKE,true));"/>
 	
 </mx:Module>
 
