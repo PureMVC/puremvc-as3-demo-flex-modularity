@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" 
+	implements="org.puremvc.as3.multicore.demos.flex.modularity.interfaces.IWidget"
+	creationComplete="initializeWidget( )"
+	layout="absolute">
+	
+	<mx:Metadata>
+		[Event('poke')]	
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import com.widgetworks.superwidget.ApplicationFacade;
+			
+			public static const WIDGET_URI:String = "http://widgetworks.com/SuperWidget/";
+			public static const POKE:String='poke';
+			
+			public function getWidgetKey():String
+			{
+				return WIDGET_URI+this.id
+			}
+			
+			/**
+			 * Startup the widget using the multiton key passed in.
+			 */
+			public function initializeWidget( ):void
+			{
+				ApplicationFacade.getInstance( getWidgetKey() ).startup(this);
+			}
+		]]>
+	</mx:Script>
+	
+	<mx:Button label="SuperWidget!" click="dispatchEvent(new Event(POKE,true));"/>
+	
+</mx:Module>
+

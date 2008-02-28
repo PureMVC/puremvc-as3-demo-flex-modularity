@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:widgetmakers="com.widgetmakers.coolwidget.view.components.*" 
+	xmlns:widgetworks="com.widgetworks.superwidget.view.components.*" 
+	layout="vertical">
+	<mx:Script>
+		<![CDATA[
+		
+		]]>
+	</mx:Script>
+	<widgetmakers:CoolWidget id="w1" />
+	<widgetworks:SuperWidget id="w2" />
+</mx:Application>
