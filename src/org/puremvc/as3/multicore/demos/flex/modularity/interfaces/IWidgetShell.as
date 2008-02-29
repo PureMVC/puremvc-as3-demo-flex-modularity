@@ -32,6 +32,14 @@ package org.puremvc.as3.multicore.demos.flex.modularity.interfaces
 		function addComponent( component:DisplayObject ):void;
 		
 		/**
+		 * A widget may remove a view component it added to the canvas.
+		 * <P>
+		 * 
+		 * @param displayObject to add to the canvas
+		 */
+		function removeComponent( component:DisplayObject ):void;
+		
+		/**
 		 * Allow the Widget to write to the status line
 		 */
 		function setStatusMessage( message:String ):void;

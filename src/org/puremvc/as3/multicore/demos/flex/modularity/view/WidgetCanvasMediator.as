@@ -18,7 +18,9 @@ package org.puremvc.as3.multicore.demos.flex.modularity.view
 		
 		override public function listNotificationInterests():Array
 		{
-			return [ ApplicationFacade.ADD_COMP ];
+			return [ ApplicationFacade.ADD_COMP, 
+					 ApplicationFacade.REMOVE_COMP
+			       ];
 		}
 		
 		override public function handleNotification(note:INotification):void
@@ -27,6 +29,10 @@ package org.puremvc.as3.multicore.demos.flex.modularity.view
 			{
 				case ApplicationFacade.ADD_COMP:
 					widgetCanvas.addChild( note.getBody() as DisplayObject );
+					break;
+					
+				case ApplicationFacade.REMOVE_COMP:
+					widgetCanvas.removeChild( note.getBody() as DisplayObject );
 					break;
 			}
 		}

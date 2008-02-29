@@ -11,11 +11,13 @@
 	
 	<mx:Metadata>
 		[Event('addComponent', org.puremvc.as3.multicore.demos.flex.modularity.view.events.AddComponentEvent)]	
+		[Event('removeComponent', org.puremvc.as3.multicore.demos.flex.modularity.view.events.RemoveComponentEvent)]	
 	</mx:Metadata>
 	
 	<mx:Script>
 		<![CDATA[
 			import org.puremvc.as3.multicore.demos.flex.modularity.view.events.AddComponentEvent;
+			import org.puremvc.as3.multicore.demos.flex.modularity.view.events.RemoveComponentEvent;
 			
 			protected function initializeShell():void
 			{
@@ -31,21 +33,31 @@
 				this.dispatchEvent( event );
 			}
 			
+			// Remove a component from the widget canvas
+			public function removeComponent( component:DisplayObject ):void
+			{
+				var event:RemoveComponentEvent = new RemoveComponentEvent( component );
+				event.component = component;
+				this.dispatchEvent( event );
+			}
+			
 			// Set the status message
 			public function setStatusMessage( message:String ):void
 			{
 				statusLine.text = message;	
 			}
 			
-			
 		]]>
 	</mx:Script>
 	
+	<!-- The Widgets -->
 	<mx:HBox horizontalAlign="left" verticalAlign="middle" width="50%" height="100%">
 		<mx:Text text="Modularity" fontFamily="Verdana" fontSize="22" fontStyle="normal" color="#0559CC"/>
 		<widgetmakers:CoolWidget id="w1" />
 		<widgetworks:SuperWidget id="w2" />
 	</mx:HBox>
+	
+	<!-- Status Line -->
 	<mx:HBox horizontalAlign="right" verticalAlign="middle" width="50%" height="100%">
 		<mx:Label id="statusLine" fontWeight="bold" text="PureMVC AS3 MultiCore Demo"/>
 	</mx:HBox>

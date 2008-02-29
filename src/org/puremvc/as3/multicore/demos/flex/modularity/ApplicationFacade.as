@@ -11,6 +11,7 @@ package org.puremvc.as3.multicore.demos.flex.modularity
 		// Notification constants 
 		public static const STARTUP:String = 'startup';
 		public static const ADD_COMP:String = 'addComp';
+		public static const REMOVE_COMP:String = 'removeComp';
 
 		public function ApplicationFacade( key:String )
 		{
