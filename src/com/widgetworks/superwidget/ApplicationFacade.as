@@ -1,11 +1,11 @@
 package com.widgetworks.superwidget
 {
-	import com.widgetworks.superwidget.controller.StartupCommand;
-	import com.widgetworks.superwidget.view.components.SuperWidget;
-	
 	import org.puremvc.as3.multicore.interfaces.IFacade;
 	import org.puremvc.as3.multicore.patterns.facade.Facade;
 
+	import com.widgetworks.superwidget.controller.StartupCommand;
+	import com.widgetworks.superwidget.view.components.SuperWidget;
+	
 	public class ApplicationFacade extends Facade implements IFacade
 	{
 		

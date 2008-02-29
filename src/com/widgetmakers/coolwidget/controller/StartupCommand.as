@@ -14,8 +14,8 @@ package com.widgetmakers.coolwidget.controller
 		{
 			facade.registerProxy( new CoolWidgetProxy() );
 
-			var app:CoolWidget = note.getBody() as CoolWidget;
-			facade.registerMediator(new CoolWidgetMediator( app ));
+			var coolWidget:CoolWidget = note.getBody() as CoolWidget;
+			facade.registerMediator( new CoolWidgetMediator( coolWidget ) );
 		}
 		
 	}

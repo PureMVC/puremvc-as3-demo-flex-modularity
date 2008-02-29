@@ -6,7 +6,7 @@ package com.widgetmakers.coolwidget.view
 	
 	import flash.events.Event;
 	
-	import mx.controls.Alert;
+	import mx.controls.Label;
 	
 	import org.puremvc.as3.multicore.interfaces.IMediator;
 	import org.puremvc.as3.multicore.patterns.mediator.Mediator;
@@ -29,7 +29,10 @@ package com.widgetmakers.coolwidget.view
 
 		protected function onProd( event:Event ):void
 		{
-			mx.controls.Alert.show(coolWidgetProxy.getData().toString(),"You prodded the Cool Widget!"); 	
+			//mx.controls.Alert.show(coolWidgetProxy.getData().toString(),"You prodded the Cool Widget!");
+			var label:Label = new Label();
+			label.text = 'You prodded the Cool Widget!';
+			coolWidget.widgetShell.addComponent( label ); 
 		}
 		
 		protected function get coolWidget():CoolWidget

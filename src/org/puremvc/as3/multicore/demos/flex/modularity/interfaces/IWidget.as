@@ -1,10 +1,10 @@
 package org.puremvc.as3.multicore.demos.flex.modularity.interfaces
 {
 	/**
-	 * Define an interface for communicating with Widgets.
+	 * Interface for a Widget.
 	 * <P>
-	 * This app must define an interface by which we will
-	 * communicate with the widget. What we call 'widgets' 
+	 * This is the API that must be implemented by a
+	 * Widget. What we are calling 'widgets' 
 	 * in this demo application are Flex Modules, but they 
 	 * could also be Flash based apps using the PureMVC 
 	 * AS3 MultiCore framework.</P>
@@ -16,8 +16,17 @@ package org.puremvc.as3.multicore.demos.flex.modularity.interfaces
 		 * <P> 
 		 * This will be a unique string. Generally created
 		 * by adding a unique URI for the widget to the 
-		 * id property of the IWidget instance.</P> 
+		 * id property of the IWidget instance.</P>
 		 */
 		function getWidgetKey( ):String;
+		
+		/**
+		 * Set the Widget's reference to the WidgetShell.
+		 * <P>
+		 * The Widget communicates with the rest of the
+		 * application via the API exposed by the 
+		 * WidgetShell.  
+		 */
+		function setWidgetShell( shell:IWidgetShell ):void;
 	}
 }

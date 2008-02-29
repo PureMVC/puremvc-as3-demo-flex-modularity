@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ApplicationControlBar 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	implements="org.puremvc.as3.multicore.demos.flex.modularity.interfaces.IWidgetShell" 
+	xmlns:widgetmakers="com.widgetmakers.coolwidget.view.components.*" 
+	xmlns:widgetworks="com.widgetworks.superwidget.view.components.*" 
+	backgroundColor="#FFFFFF"
+	creationComplete="initializeShell()"
+	dock="true">
+	
+	<mx:Metadata>
+		[Event('addComponent', org.puremvc.as3.multicore.demos.flex.modularity.view.events.AddComponentEvent)]	
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import org.puremvc.as3.multicore.demos.flex.modularity.view.events.AddComponentEvent;
+			
+			protected function initializeShell():void
+			{
+				w1.setWidgetShell( this );
+				w2.setWidgetShell( this );
+			}
+			
+			// Add a component to the widget canvas
+			public function addComponent( component:DisplayObject ):void
+			{
+				var event:AddComponentEvent = new AddComponentEvent( component );
+				event.component = component;
+				this.dispatchEvent( event );
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Text text="Modularity"/>
+	<widgetmakers:CoolWidget id="w1" />
+	<widgetworks:SuperWidget id="w2" />
+	
+</mx:ApplicationControlBar>	

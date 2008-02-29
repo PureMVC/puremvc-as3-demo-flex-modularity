@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application 
+	xmlns:view="org.puremvc.as3.multicore.demos.flex.modularity.view.components.*"
 	xmlns:mx="http://www.adobe.com/2006/mxml" 
-	xmlns:widgetmakers="com.widgetmakers.coolwidget.view.components.*" 
-	xmlns:widgetworks="com.widgetworks.superwidget.view.components.*" 
-	layout="vertical">
+	pageTitle="Modularity - A PureMVC AS3 MultiCore Demo"
+	paddingTop="70" paddingBottom="0" paddingRight="0" paddingLeft="0"
+	backgroundGradientColors="[#325EC0,#FFFFFF]"
+	viewSourceURL="srcview/index.html"
+	backgroundColor="#FFFFFF" 
+	themeColor="HaloBlue" 
+	layout="vertical"
+	creationComplete="facade.startup(this)"
+	>
+	
 	<mx:Script>
 		<![CDATA[
-		
+			import org.puremvc.as3.multicore.demos.flex.modularity.ApplicationFacade;
+			public static const NAME:String = 'Modularity';
+			protected var facade:ApplicationFacade = ApplicationFacade.getInstance( NAME );		
 		]]>
 	</mx:Script>
+
+	<!-- Widget Shell -->	
+	<view:WidgetShell id="widgetShell"/>
 	
-	<mx:ApplicationControlBar dock="true">
-		<mx:Text text="Modularity"/>
-		<widgetmakers:CoolWidget id="w1" />
-		<widgetworks:SuperWidget id="w2" />
-	</mx:ApplicationControlBar>	
-	
+	<!-- Widget Canvas -->
+	<view:WidgetCanvas id="widgetCanvas"/>	
+		
 </mx:Application>

@@ -10,11 +10,25 @@
 	
 	<mx:Script>
 		<![CDATA[
+			import org.puremvc.as3.multicore.demos.flex.modularity.interfaces.IWidgetShell;
 			import com.widgetworks.superwidget.ApplicationFacade;
 			
+			// URI for this widget. Must be unique
 			public static const WIDGET_URI:String = "http://widgetworks.com/SuperWidget/";
+			
+			// Constants for the events this component dispatches. 
 			public static const POKE:String='poke';
 			
+			// This Widget's reference to the WidgetShell  
+			public var widgetShell:IWidgetShell;
+			
+			// Set the Widget Shell
+			public function setWidgetShell( shell:IWidgetShell ):void
+			{
+				widgetShell=shell;
+			}
+			
+			// The unique key for this widget instance
 			public function getWidgetKey():String
 			{
 				return WIDGET_URI+this.id
