@@ -10,7 +10,6 @@
 	
 	<mx:Script>
 		<![CDATA[
-			import org.puremvc.as3.multicore.demos.flex.modularity.interfaces.IWidget;
 			import org.puremvc.as3.multicore.demos.flex.modularity.interfaces.IWidgetShell;
 			import com.widgetmakers.coolwidget.ApplicationFacade;
 			

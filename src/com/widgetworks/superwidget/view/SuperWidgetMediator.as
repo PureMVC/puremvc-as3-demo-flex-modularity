@@ -3,8 +3,11 @@ package com.widgetworks.superwidget.view
 	import com.widgetworks.superwidget.model.SuperWidgetProxy;
 	import com.widgetworks.superwidget.view.components.SuperWidget;
 	
+	import flash.display.DisplayObject;
 	import flash.events.Event;
-	import mx.controls.Alert;
+	import flash.events.MouseEvent;
+	
+	import mx.controls.LinkButton;
 	
 	import org.puremvc.as3.multicore.interfaces.IMediator;
 	import org.puremvc.as3.multicore.patterns.mediator.Mediator;
@@ -27,9 +30,27 @@ package com.widgetworks.superwidget.view
 
 		protected function onPoke( event:Event ):void
 		{
-			mx.controls.Alert.show(superWidgetProxy.getData().toString(),"You poked the Super Widget!"); 	
+			// add a button to the canvas
+			var button:LinkButton = new LinkButton();
+			button.label = 'You poked the Super Widget! [ Click to Remove ]';
+			button.addEventListener( MouseEvent.CLICK, onComponentClick );
+			superWidget.widgetShell.addComponent( button );
+			
+			// and add some status message text 
+			var message:String = "Some data from the SuperWidget Model: [ "+superWidgetProxy.getData().toString()+ " ]";
+			superWidget.widgetShell.setStatusMessage( message );
 		}
 		
+		
+		// Handle clicks to the buttons added to the widget canvas
+		protected function onComponentClick( event:MouseEvent ):void
+		{
+			var component:DisplayObject = event.target as DisplayObject;
+			superWidget.widgetShell.removeComponent( component );
+			component.removeEventListener( MouseEvent.CLICK, onComponentClick );
+			superWidget.widgetShell.setStatusMessage( 'Removed SuperWidget-generated display object from Widget Canvas') 
+		}
+
 		protected function get superWidget():SuperWidget
 		{
 			return viewComponent as SuperWidget;

@@ -34,7 +34,7 @@ package com.widgetmakers.coolwidget.view
 			// add a button to the canvas
 			var button:Button = new Button();
 			button.label = 'You prodded the Cool Widget! [ Click to Remove ]';
-			button.addEventListener( MouseEvent.CLICK, onClick );
+			button.addEventListener( MouseEvent.CLICK, onComponentClick );
 			coolWidget.widgetShell.addComponent( button );
 			
 			// and add some status message text 
@@ -44,11 +44,11 @@ package com.widgetmakers.coolwidget.view
 		}
 		
 		// Handle clicks to the buttons added to the widget canvas
-		protected function onClick( event:MouseEvent ):void
+		protected function onComponentClick( event:MouseEvent ):void
 		{
 			var component:DisplayObject = event.target as DisplayObject;
 			coolWidget.widgetShell.removeComponent( component );
-			component.removeEventListener( MouseEvent.CLICK, onClick );
+			component.removeEventListener( MouseEvent.CLICK, onComponentClick );
 			coolWidget.widgetShell.setStatusMessage( 'Removed CoolWidget-generated display object from Widget Canvas') 
 		}
 		
