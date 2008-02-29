@@ -1,3 +1,8 @@
+/*
+  Modularity - A PureMVC AS3 MultiCore Flex Demo
+  Copyright(c) 2008 Cliff Hall <clifford.hall@puremvc.org>
+  Your reuse is governed by the Creative Commons Attribution 3.0 License
+ */
 package org.puremvc.as3.multicore.demos.flex.modularity.view
 {
 
