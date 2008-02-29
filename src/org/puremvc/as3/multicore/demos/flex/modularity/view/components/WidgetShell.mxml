@@ -3,7 +3,8 @@
 	xmlns:mx="http://www.adobe.com/2006/mxml"
 	implements="org.puremvc.as3.multicore.demos.flex.modularity.interfaces.IWidgetShell" 
 	xmlns:widgetmakers="com.widgetmakers.coolwidget.view.components.*" 
-	xmlns:widgetworks="com.widgetworks.superwidget.view.components.*" 
+	xmlns:widgetworks="com.widgetworks.superwidget.view.components.*"
+	verticalAlign="middle" 
 	backgroundColor="#FFFFFF"
 	creationComplete="initializeShell()"
 	dock="true">
@@ -30,11 +31,23 @@
 				this.dispatchEvent( event );
 			}
 			
+			// Set the status message
+			public function setStatusMessage( message:String ):void
+			{
+				statusLine.text = message;	
+			}
+			
+			
 		]]>
 	</mx:Script>
 	
-	<mx:Text text="Modularity"/>
-	<widgetmakers:CoolWidget id="w1" />
-	<widgetworks:SuperWidget id="w2" />
+	<mx:HBox horizontalAlign="left" verticalAlign="middle" width="50%" height="100%">
+		<mx:Text text="Modularity" fontFamily="Verdana" fontSize="22" fontStyle="normal" color="#0559CC"/>
+		<widgetmakers:CoolWidget id="w1" />
+		<widgetworks:SuperWidget id="w2" />
+	</mx:HBox>
+	<mx:HBox horizontalAlign="right" verticalAlign="middle" width="50%" height="100%">
+		<mx:Label id="statusLine" fontWeight="bold" text="PureMVC AS3 MultiCore Demo"/>
+	</mx:HBox>
 	
 </mx:ApplicationControlBar>	

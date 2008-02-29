@@ -31,5 +31,11 @@ package org.puremvc.as3.multicore.demos.flex.modularity.interfaces
 		 */
 		function addComponent( component:DisplayObject ):void;
 		
+		/**
+		 * Allow the Widget to write to the status line
+		 */
+		function setStatusMessage( message:String ):void;
+		
+		
 	}
 }
